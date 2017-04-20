@@ -1,0 +1,17 @@
+<h1>New Album</h1>
+<form action=" <%= band_albums_url %>" method="post">
+  <%= auth_token %>
+
+  <label for="name">Title: </label>
+  <input id="name" type="text" name="album[name]">
+
+  <br>
+  <br>
+
+  <label for="recording_type">Recording Type</label>
+  <br>
+  Live<input type="radio" name="album[recording_type]" value="studio">
+  Studio<input type="radio" name="album[recording_type]" value="live">
+
+  <input type="submit" value="Create Album">
+</form>

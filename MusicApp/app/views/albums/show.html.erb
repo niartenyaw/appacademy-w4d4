@@ -1,0 +1,17 @@
+<h1><%= link_to "#{@album.name}", "/bands/#{@band.id}" %></h1>
+
+<br>
+<br>
+<% @album.tracks.try(:each) do |track| %>
+  <%= link_to "#{track.name}", "/bands/#{@band.id}/albums/#{@album.id}/tracks/#{track.id}" %>
+
+  <br><br>
+<% end %>
+
+<form action= "<%= band_album_url %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <%= auth_token %>
+
+  <input type="submit" value="Delete album :(">
+
+</form>
