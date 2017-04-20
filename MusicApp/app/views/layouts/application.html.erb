@@ -9,6 +9,17 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <form action="<%= sessions_url %>" method="post">
+        <%= auth_token %>
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Sign Out">
+      </form>
+    <% end %>
+
+    <%= render 'sessions/errors' %>
+
+
     <%= yield %>
   </body>
 </html>
