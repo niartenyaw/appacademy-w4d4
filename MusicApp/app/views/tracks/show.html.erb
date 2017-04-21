@@ -2,4 +2,6 @@
 
 <h2> <%= link_to "#{@album.name}", "/bands/#{@album.band_id}/albums/#{@album.id}" %></h2>
 
+<h2><a href="<%= @track.youtube %>">Play Dat Shiz</a></h2>
+
 <h3> <%= @track.lyrics %></h3>
