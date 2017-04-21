@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   def new
     @album = Album.new
+    @band = Band.find(params[:band_id])
   end
 
   def create
@@ -15,6 +16,8 @@ class AlbumsController < ApplicationController
   end
 
   def edit
+    @album = Album.find_by(id: params[:id])
+    render :edit
   end
 
   def show
@@ -23,6 +26,13 @@ class AlbumsController < ApplicationController
   end
 
   def update
+    @album = Album.find_by(id: params[:id])
+    if @album.update_attributes(album_params)
+      redirect_to band_album_url(@album)
+    else
+      flash[:errors] = @album.errors.full_messages
+      redirect_to edit_band_album_url
+    end
   end
 
   def destroy

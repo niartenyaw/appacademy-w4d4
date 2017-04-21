@@ -13,5 +13,10 @@
   <%= auth_token %>
 
   <input type="submit" value="Delete album :(">
+</form>
 
+<form action= "<%= "/bands/#{@album.band_id}/albums/#{@album.id}/edit" %>" method="get">
+  <%= auth_token %>
+
+  <input type="submit" value="Edit album :)">
 </form>

@@ -1,4 +1,4 @@
-<h1> <%= link_to "#{@band.name}", "/bands/" %></h1>
+<h1><%= link_to "#{@band.name}", "/bands/" %></h1>
 
 <% @band.albums.try(:each) do |album| %>
   <h3><%= link_to "#{album.name}", "/bands/#{@band.id}/albums/#{album.id}" %></h3>
